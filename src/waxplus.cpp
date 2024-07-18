@@ -4,6 +4,7 @@
 
 #include "wax_common.hpp"
 #include "wax_header.hpp"
+#include "wax_buffer.hpp"
 #include "wax_stock_candle.hpp"
 
 
@@ -31,25 +32,23 @@ int main (int argc, char const *argv[])
 		return 0;
 	}
 
-	Byte header_buffer[WAX_FILE_HEADER_LENGTH];
-	fread(header_buffer, WAX_FILE_HEADER_LENGTH, 1, ptr);
-	WaxHeader header(header_buffer);
+	WaxBuffer headerBuffer(WAX_FILE_HEADER_LENGTH);
+	fread(headerBuffer.getBuffer(), WAX_FILE_HEADER_LENGTH, 1, ptr);
+	WaxHeader header(headerBuffer.getBuffer());
 	header.print();
 
-	Byte *buffer = NULL;
 	int buffer_size = 24;
-	buffer = (Byte*)malloc(buffer_size);
+	WaxBuffer buffer(buffer_size);
 
 	for (u32 i = 0; i < header.rowCount(); ++i) {
-		fread(buffer, buffer_size, 1, ptr);
-		StockCandle candle(buffer);
+		fread(buffer.getBuffer(), buffer_size, 1, ptr);
+		StockCandle candle(buffer.getBuffer());
 		candle.print(i+1);
 
 		if (i+1 >= number_of_rows_to_read) break;
 	}
 
 	fclose(ptr);
-	free(buffer);
 
 	return 0;
 }
