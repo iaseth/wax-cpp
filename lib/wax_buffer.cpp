@@ -12,6 +12,12 @@ WaxBuffer::~WaxBuffer () {
 }
 
 
+int WaxBuffer::readBytesFromFile (FILE *ptr, int n) {
+	fread(this->buffer, n, 1, ptr);
+	return WAX_SUCCESS;
+}
+
+
 Byte* WaxBuffer::getBuffer () {
 	return this->buffer;
 }
