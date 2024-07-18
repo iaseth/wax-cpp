@@ -1,4 +1,5 @@
-#include <stdio.h>
+#include <iostream>
+
 #include <stdlib.h>
 
 #include "wax_common.hpp"
@@ -6,13 +7,15 @@
 #include "wax_stock_candle.hpp"
 
 
+using std::cout;
+
 
 int main (int argc, char const *argv[])
 {
 	u32 number_of_rows_to_read = 16;
 
 	if (argc == 1) {
-		printf("Usage:\n\twaxc $filepath\n");
+		cout << "Usage:\n\twaxc $filepath\n";
 		return 0;
 	}
 
@@ -24,7 +27,7 @@ int main (int argc, char const *argv[])
 
 	FILE *ptr = fopen(filepath,"rb");
 	if (ptr == NULL) {
-		printf("File not found: %s\n", filepath);
+		cout << "File not found: " << filepath << '\n';
 		return 0;
 	}
 

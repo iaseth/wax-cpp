@@ -1,9 +1,12 @@
 #include "wax_stock_candle.hpp"
 
+#include <iostream>
 #include <stdio.h>
 
 #include "wax_convert.hpp"
 
+
+using std::cout;
 
 
 StockCandle::StockCandle () {}
