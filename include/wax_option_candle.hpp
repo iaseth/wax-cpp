@@ -5,9 +5,17 @@
 
 
 
-typedef struct OptionCandle {
+class OptionCandle
+{
 	u32 timestamp, open, high, low, close, volume, oi;
-} OptionCandle;
+
+public:
+	OptionCandle ();
+	OptionCandle (Byte const *buffer);
+	~OptionCandle ();
+
+	int print (int n);
+};
 
 
 

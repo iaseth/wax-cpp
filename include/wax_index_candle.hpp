@@ -5,9 +5,17 @@
 
 
 
-typedef struct IndexCandle {
+class IndexCandle
+{
 	u32 timestamp, open, high, low, close;
-} IndexCandle;
+
+public:
+	IndexCandle ();
+	IndexCandle (Byte const *buffer);
+	~IndexCandle ();
+
+	int print (int n);
+};
 
 
 
