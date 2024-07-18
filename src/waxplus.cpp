@@ -32,13 +32,13 @@ int main (int argc, char const *argv[])
 		return 0;
 	}
 
-	WaxBuffer headerBuffer(WAX_FILE_HEADER_LENGTH);
-	headerBuffer.readBytesFromFile(ptr, WAX_FILE_HEADER_LENGTH);
-	WaxHeader header(headerBuffer.getBuffer());
+	WaxBuffer buffer(WAX_FILE_HEADER_LENGTH);
+	buffer.readBytesFromFile(ptr, WAX_FILE_HEADER_LENGTH);
+	WaxHeader header(buffer.getBuffer());
 	header.print();
 
 	int buffer_size = 24;
-	WaxBuffer buffer(buffer_size);
+	buffer.resize(buffer_size);
 
 	for (u32 i = 0; i < header.rowCount(); ++i) {
 		buffer.readBytesFromFile(ptr, buffer_size);

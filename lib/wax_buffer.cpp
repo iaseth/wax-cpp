@@ -12,6 +12,13 @@ WaxBuffer::~WaxBuffer () {
 }
 
 
+int WaxBuffer::resize (int n) {
+	this->length = n;
+	this->buffer = (Byte*)realloc(this->buffer, this->length);
+	return WAX_SUCCESS;
+}
+
+
 int WaxBuffer::readBytesFromFile (FILE *ptr, int n) {
 	fread(this->buffer, n, 1, ptr);
 	return WAX_SUCCESS;
