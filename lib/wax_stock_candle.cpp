@@ -1,6 +1,9 @@
 #include "wax_stock_candle.hpp"
 
+#include <stdio.h>
+
 #include "wax_convert.hpp"
+
 
 
 StockCandle::StockCandle () {}
