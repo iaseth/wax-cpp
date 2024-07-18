@@ -5,7 +5,7 @@
 
 
 
-typedef struct WaxHeader
+class WaxHeader
 {
 	u32 version; // 2 bytes
 	u32 format; // 2 bytes
@@ -14,11 +14,16 @@ typedef struct WaxHeader
 	u32 row_length; // 2 bytes
 	u32 row_count; // 4 bytes
 	u32 default_value; // 4 bytes
-} WaxHeader;
 
+public:
+	WaxHeader ();
+	WaxHeader (Byte const *buffer);
+	~WaxHeader ();
 
-int read_header_row_from_bytes (WaxHeader *header, Byte const *buffer);
-int print_header_row (WaxHeader *header);
+	u32 rowCount () { return this->row_count; }
+
+	int print ();
+};
 
 
 #endif

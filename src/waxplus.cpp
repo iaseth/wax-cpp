@@ -33,15 +33,14 @@ int main (int argc, char const *argv[])
 
 	Byte header_buffer[WAX_FILE_HEADER_LENGTH];
 	fread(header_buffer, WAX_FILE_HEADER_LENGTH, 1, ptr);
-	WaxHeader header;
-	read_header_row_from_bytes(&header, header_buffer);
-	print_header_row(&header);
+	WaxHeader header(header_buffer);
+	header.print();
 
 	Byte *buffer = NULL;
 	int buffer_size = 24;
 	buffer = (Byte*)malloc(buffer_size);
 
-	for (u32 i = 0; i < header.row_count; ++i) {
+	for (u32 i = 0; i < header.rowCount(); ++i) {
 		fread(buffer, buffer_size, 1, ptr);
 		StockCandle candle(buffer);
 		candle.print(i+1);
