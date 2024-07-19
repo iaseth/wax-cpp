@@ -1,10 +1,6 @@
 #include <iostream>
 
-#include "wax/common.hpp"
-#include "wax/header.hpp"
-#include "wax/buffer.hpp"
-#include "wax/binary_file.hpp"
-#include "wax/stock_candle.hpp"
+#include "wax/wax.hpp"
 
 
 using std::cout;
