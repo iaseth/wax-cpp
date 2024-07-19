@@ -1,4 +1,4 @@
-#include "wax.hpp"
+#include "wax/wax.hpp"
 
 
 

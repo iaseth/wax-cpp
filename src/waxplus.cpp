@@ -2,10 +2,10 @@
 
 #include <stdlib.h>
 
-#include "wax_common.hpp"
-#include "wax_header.hpp"
-#include "wax_buffer.hpp"
-#include "wax_stock_candle.hpp"
+#include "wax/common.hpp"
+#include "wax/header.hpp"
+#include "wax/buffer.hpp"
+#include "wax/stock_candle.hpp"
 
 
 using std::cout;

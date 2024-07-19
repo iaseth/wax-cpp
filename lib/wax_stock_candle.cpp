@@ -1,9 +1,9 @@
-#include "wax_stock_candle.hpp"
+#include "wax/stock_candle.hpp"
 
 #include <iostream>
 #include <stdio.h>
 
-#include "wax_convert.hpp"
+#include "wax/convert.hpp"
 
 
 using std::cout;

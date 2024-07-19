@@ -1,7 +1,7 @@
 #ifndef WAX_OPTION_CANDLE_HPP
 #define WAX_OPTION_CANDLE_HPP
 
-#include "wax_common.hpp"
+#include "wax/common.hpp"
 
 
 

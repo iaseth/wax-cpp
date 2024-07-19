@@ -1,8 +1,8 @@
 #ifndef WAX_HEADER_HPP
 #define WAX_HEADER_HPP
 
-#include "wax_common.hpp"
-#include "wax_buffer.hpp"
+#include "wax/common.hpp"
+#include "wax/buffer.hpp"
 
 
 

@@ -1,7 +1,7 @@
 #ifndef WAX_CONVERT_HPP
 #define WAX_CONVERT_HPP
 
-#include "wax_common.hpp"
+#include "wax/common.hpp"
 
 
 typedef struct TimeOfDay {
