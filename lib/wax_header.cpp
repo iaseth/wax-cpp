@@ -7,7 +7,8 @@
 
 WaxHeader::WaxHeader () {}
 
-WaxHeader::WaxHeader (Byte const *buffer) {
+WaxHeader::WaxHeader (WaxBuffer &bufferObject) {
+	Byte const *buffer = bufferObject.getBuffer();
 	this->version = read_n_bytes_into_u32(&buffer[0], 2);
 	this->format = read_n_bytes_into_u32(&buffer[2], 2);
 	this->header_lines_count = read_n_bytes_into_u32(&buffer[4], 1);

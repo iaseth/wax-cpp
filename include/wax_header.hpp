@@ -2,6 +2,7 @@
 #define WAX_HEADER_HPP
 
 #include "wax_common.hpp"
+#include "wax_buffer.hpp"
 
 
 
@@ -17,7 +18,7 @@ class WaxHeader
 
 public:
 	WaxHeader ();
-	WaxHeader (Byte const *buffer);
+	WaxHeader (WaxBuffer &buffer);
 	~WaxHeader ();
 
 	u32 rowCount () { return this->row_count; }

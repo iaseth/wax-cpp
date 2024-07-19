@@ -34,7 +34,7 @@ int main (int argc, char const *argv[])
 
 	WaxBuffer buffer(WAX_FILE_HEADER_LENGTH);
 	buffer.readBytesFromFile(ptr, WAX_FILE_HEADER_LENGTH);
-	WaxHeader header(buffer.getBuffer());
+	WaxHeader header(buffer);
 	header.print();
 
 	int buffer_size = 24;
