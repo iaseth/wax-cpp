@@ -18,6 +18,7 @@ public:
 	~WaxBuffer ();
 
 	int resize (int n);
+	int readBytesFromFile (FILE *ptr);
 	int readBytesFromFile (FILE *ptr, int n);
 
 	Byte* getBuffer ();

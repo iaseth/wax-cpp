@@ -33,7 +33,7 @@ int main (int argc, char const *argv[])
 	}
 
 	WaxBuffer buffer(WAX_FILE_HEADER_LENGTH);
-	buffer.readBytesFromFile(ptr, WAX_FILE_HEADER_LENGTH);
+	buffer.readBytesFromFile(ptr);
 	WaxHeader header(buffer);
 	header.print();
 
@@ -41,7 +41,7 @@ int main (int argc, char const *argv[])
 	buffer.resize(buffer_size);
 
 	for (u32 i = 0; i < header.rowCount(); ++i) {
-		buffer.readBytesFromFile(ptr, buffer_size);
+		buffer.readBytesFromFile(ptr);
 		StockCandle candle(buffer.getBuffer());
 		candle.print(i+1);
 

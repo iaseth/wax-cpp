@@ -19,6 +19,10 @@ int WaxBuffer::resize (int n) {
 }
 
 
+int WaxBuffer::readBytesFromFile (FILE *ptr) {
+	return this->readBytesFromFile(ptr, this->length);
+}
+
 int WaxBuffer::readBytesFromFile (FILE *ptr, int n) {
 	fread(this->buffer, n, 1, ptr);
 	return WAX_SUCCESS;
