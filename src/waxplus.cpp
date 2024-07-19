@@ -1,10 +1,9 @@
 #include <iostream>
 
-#include <stdlib.h>
-
 #include "wax/common.hpp"
 #include "wax/header.hpp"
 #include "wax/buffer.hpp"
+#include "wax/binary_file.hpp"
 #include "wax/stock_candle.hpp"
 
 
@@ -26,14 +25,14 @@ int main (int argc, char const *argv[])
 		number_of_rows_to_read = atoi(argv[2]);
 	}
 
-	FILE *ptr = fopen(filepath,"rb");
-	if (ptr == NULL) {
+	WaxBinaryFile file(filepath);
+	if (file.getPointer() == NULL) {
 		cout << "File not found: " << filepath << '\n';
 		return 0;
 	}
 
 	WaxBuffer buffer(WAX_FILE_HEADER_LENGTH);
-	buffer.readBytesFromFile(ptr);
+	buffer.readBytesFromFile(file);
 	WaxHeader header(buffer);
 	header.print();
 
@@ -41,14 +40,12 @@ int main (int argc, char const *argv[])
 	buffer.resize(buffer_size);
 
 	for (u32 i = 0; i < header.rowCount(); ++i) {
-		buffer.readBytesFromFile(ptr);
+		buffer.readBytesFromFile(file);
 		StockCandle candle(buffer.getBuffer());
 		candle.print(i+1);
 
 		if (i+1 >= number_of_rows_to_read) break;
 	}
-
-	fclose(ptr);
 
 	return 0;
 }

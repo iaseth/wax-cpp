@@ -5,6 +5,7 @@
 #include <stdlib.h>
 
 #include "wax/common.hpp"
+#include "wax/binary_file.hpp"
 
 
 
@@ -18,8 +19,12 @@ public:
 	~WaxBuffer ();
 
 	int resize (int n);
-	int readBytesFromFile (FILE *ptr);
+
 	int readBytesFromFile (FILE *ptr, int n);
+	int readBytesFromFile (FILE *ptr);
+
+	int readBytesFromFile (WaxBinaryFile &file, int n) { return this->readBytesFromFile(file.getPointer(), n); }
+	int readBytesFromFile (WaxBinaryFile &file) { return this->readBytesFromFile(file, this->length); }
 
 	Byte* getBuffer ();
 };
